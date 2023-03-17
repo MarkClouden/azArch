@@ -92,3 +92,32 @@ Set secrets for the repository actions for
 - AZURE_TENANT_ID (from the $tenant variable above)
 - AZURE_SUBSCRIPTION_ID (from the $sub variable above)
 
+Notes
+=====
+
+Where Resource Group == 'Environment' (Test, Stage, Prod)
+
+```mermaid
+flowchart LR
+    Subscription --> ResourceGroup
+    ResourceGroup --> ContainerRegistry
+    ResourceGroup --> Cosmos
+    ResourceGroup --> MessageBus
+    ResourceGroup --> KeyVault
+    ResourceGroup --> AppInsights
+    ResourceGroup --> AppEnvironment
+    AppEnvironment --> OTELCollectorContainerApp
+    AppEnvironment --> RealmServiceContainerApp
+    AppEnvironment --> AnotherRealmServiceContainerApp
+```
+
+More
+====
+
+```mermaid
+flowchart LR
+    AppRegistration --> ServicePrincipal
+    ServicePrincipal --> ResourceGroupScope
+    FederatedIdentity --> RealmServiceRepo
+    AppRegistration --> FederatedIdentity
+```
