@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Actions/secure-report-testresults/node_modules
+/.vs
+/src/HelloThere/bin/Debug/net7.0
+/src/HelloThere/obj
+/test/Test.HelloThere/bin/Debug/net7.0
+/test/Test.HelloThere/bin/Release/net7.0
+/test/Test.HelloThere/obj
+/test/Test.HelloThere/TestResults
