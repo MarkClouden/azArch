@@ -15,9 +15,13 @@ It will also be useful to know the tenant id.
 Create the app registration
 ---------------------------
 
-This could be one per environment (dev/stage/prod). Display name should be descriptive, but does not have to be unique. (confirm?)
+Create an app registration for the subscription named `Secure_DevOps`. This will be our 'super' DevOps user used to create application environments and nothing else.
 
-`$applicationRegistrationName = 'MyAppNP'`
+We want that registration name in our scripts.
+
+`$applicationRegistrationName = 'Secure_DevOps'`
+
+This line can be used to create via the Azure CLI:
 
 `az ad app create --display-name $applicationRegistrationName`
 
@@ -30,10 +34,23 @@ The output of the command contains things we need for later:
 
 `$applicationRegistrationObjectId = '{{from json}}'`
 
+Repositories
+------------
+
+#### Infrastructure
+
+The infrastructure repository describes application deployment and platform resources for the whole of the system across all environments, including for each of the solutions that make it up.
+
+Deployments only occur from the infrastructure repository workflows. Additional workflows exist to allow manually defining new environments.
+
+#### Solution
+
+
+
 Create Federated Credentials
 ----------------------------
 
-To permit github to authenticate without having passwords in configuration, we use federated credentials.
+We want to permit github actions to authenticate without having passwords in its configuration, so we use federated credentials.
 
 Create a `policy.json` file as
 ```json
